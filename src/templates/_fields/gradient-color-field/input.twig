@@ -1,0 +1,94 @@
+<div id="{{ id }}-gradient-field" class="gcf-field" data-gradient-color-input>
+  <input type="hidden" name="{{ name }}[gradient]" value="{{ gradient|e('html_attr') }}" data-gradient-hidden>
+
+  <div class="gcf-trigger-row">
+    <button type="button" class="gcf-trigger" data-gradient-toggle aria-label="{{ 'Open gradient picker'|t('app') }}">
+      <span class="gcf-preview" data-gradient-preview style="background: {{ previewCss|e('html_attr') }};"></span>
+    </button>
+    <span class="gcf-css-output" data-gradient-css-output></span>
+  </div>
+
+  <div class="gcf-pop" data-gradient-pop hidden>
+    <div class="gcf-head">
+      <div class="gcf-type-toggle" role="group" aria-label="{{ 'Gradient type'|t('app') }}">
+        <button type="button" class="gcf-type-icon-btn" data-gradient-type-btn="linear" aria-label="{{ 'Linear'|t('app') }}" aria-pressed="true">
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <path d="M4 14L14 4"/>
+            <path d="M6 16h10"/>
+            <path d="M4 6V16"/>
+          </svg>
+        </button>
+        <button type="button" class="gcf-type-icon-btn" data-gradient-type-btn="radial" aria-label="{{ 'Radial'|t('app') }}" aria-pressed="false">
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <circle cx="10" cy="10" r="2.4"/>
+            <circle cx="10" cy="10" r="5.6"/>
+            <circle cx="10" cy="10" r="8"/>
+            <path d="M10 2v2"/>
+          </svg>
+        </button>
+      </div>
+      <div class="gcf-head-actions">
+        <button type="button" class="gcf-icon-btn" data-gradient-reverse title="Reverse">↔</button>
+        <button type="button" class="gcf-icon-btn" data-gradient-rotate title="Rotate">↻</button>
+      </div>
+    </div>
+
+    <div class="gcf-track-wrap">
+      <div class="gcf-track" data-gradient-track style="background: {{ previewCss|e('html_attr') }};"></div>
+      <div class="gcf-stops-overlay" data-gradient-stop-layer></div>
+    </div>
+
+    <div class="gcf-stops-head">
+      <strong>Stops</strong>
+      <button type="button" class="gcf-add-stop" data-gradient-add-stop aria-label="Add stop">+</button>
+    </div>
+
+    <div class="gcf-stops-list" data-gradient-stop-rows></div>
+  </div>
+
+  <div class="gcf-color-pop" data-stop-color-picker hidden>
+    <div class="gcf-cp-sv" data-cp-sv>
+      <div class="gcf-cp-sv-white"></div>
+      <div class="gcf-cp-sv-black"></div>
+      <span class="gcf-cp-handle" data-cp-sv-handle></span>
+    </div>
+    <div class="gcf-cp-row gcf-cp-row1">
+      <button type="button" class="gcf-cp-eye-btn" data-cp-eyedropper aria-label="{{ 'Pick color from screen'|t('app') }}">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M15.23 2.99L12.24 0L8.98 3.26L7.25 1.53L6.28 2.5L7.49 3.71L0 11.21V15.23H4.02L11.52 7.73L12.73 8.94L13.7 7.97L11.97 6.24L15.23 2.98V2.99ZM3.2 13.52L1.71 12.03L8.51 5.23L10 6.72L3.2 13.52Z" fill="black"/>
+        </svg>
+      </button>
+      <span class="gcf-cp-preview-dot" data-cp-preview-dot></span>
+      <div class="gcf-cp-slider-stack">
+        <input type="range" min="0" max="360" step="1" data-cp-hue class="gcf-cp-hue-slider">
+        <input type="range" min="0" max="100" step="1" data-cp-alpha class="gcf-cp-alpha-slider">
+      </div>
+    </div>
+    <div class="gcf-cp-row gcf-cp-row-channels" data-cp-channel-grid>
+      <div class="gcf-cp-channel" data-cp-cwrap="1">
+        <input type="text" class="text color-input" data-cp-cinput="1">
+        <span data-cp-clabel="1">HEX</span>
+      </div>
+      <div class="gcf-cp-channel" data-cp-cwrap="2">
+        <input type="text" class="text color-input" data-cp-cinput="2">
+        <span data-cp-clabel="2"></span>
+      </div>
+      <div class="gcf-cp-channel" data-cp-cwrap="3">
+        <input type="text" class="text color-input" data-cp-cinput="3">
+        <span data-cp-clabel="3"></span>
+      </div>
+      <div class="gcf-cp-channel" data-cp-cwrap="4">
+        <input type="text" class="text color-input" data-cp-cinput="4">
+        <span data-cp-clabel="4"></span>
+      </div>
+      <div class="gcf-cp-mode-switch">
+        <button type="button" data-cp-mode-prev aria-label="{{ 'Previous color mode'|t('app') }}">
+          <svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 8l4-4 4 4"/></svg>
+        </button>
+        <button type="button" data-cp-mode-next aria-label="{{ 'Next color mode'|t('app') }}">
+          <svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
